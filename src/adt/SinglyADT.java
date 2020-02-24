@@ -9,5 +9,7 @@ public interface SinglyADT<E> {
 
     void sort();
 
+    void print();
+
 
 }
