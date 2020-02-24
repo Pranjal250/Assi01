@@ -116,7 +116,13 @@ public class SinglyLinkedList<E> implements SinglyADT<E> {
 
     @Override
     public void print() {
-
+        Node<E> respone = head;
+        System.out.println("---Here  are all your contacts---");
+        for (int i = 0; i < size; i++) {
+            E data = respone.getData();
+            respone = respone.getNext();
+            System.out.println(data);
+        }
     }
 
     private static class Node<E> implements Comparable<E> {
