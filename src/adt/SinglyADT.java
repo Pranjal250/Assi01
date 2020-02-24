@@ -7,5 +7,7 @@ public interface SinglyADT<E> {
 
     int search(E item);
 
+    void sort();
+
 
 }
