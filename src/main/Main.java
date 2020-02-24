@@ -14,21 +14,35 @@ public class Main {
         ArrayList<String> list2 = new ArrayList<>();
         SinglyLinkedList<Person> list = new SinglyLinkedList<>();
         boolean flag = true;
-       /* do{
-            System.out.println(" Welcome to Pranjal jain's Contact list App\n +" +
+        do {
+            System.out.println(" Welcome to Pranjal jain's Contact list App\n " +
                     "Press 1 to add a new contact\n" +
-                    "Press 2 to view all contact\n"+
-                    "Press 3 to search for a contact\n"+
-                    "Press 4 to delete a contact\n"+
+                    "Press 2 to view all contact\n" +
+                    "Press 3 to search for a contact\n" +
+                    "Press 4 to delete a contact\n" +
                     "Press 5 to exit program");
             int choice = sc.nextInt();
             sc.nextLine();
-            switch (choice){
+            switch (choice) {
                 case 1:
-
+                    addContact(list, list1, list2);
+                    break;
+                case 2:
+                    list.sort();
+                    list.print();
+                    break;
+                case 3:
+                    searchContact(list, list2);
+                    break;
+                case 4:
+                    removeContact(list, list1, list2);
+                    break;
+                case 5:
+                    flag = false;
                     break;
             }
-        }*/
+        }
+        while (flag);
     }
 
     public static SinglyLinkedList addContact(SinglyLinkedList list, ArrayList list1, ArrayList list2) {
@@ -88,7 +102,29 @@ public class Main {
         list1.remove(i - 1);
         list2.remove(i - 1);
         return list;
+    }
 
-
+    public static SinglyLinkedList searchContact(SinglyLinkedList list, ArrayList list2) {
+        System.out.println("You could search for a contact from their first names:");
+        Scanner sc = new Scanner(System.in);
+        String fName = sc.nextLine();
+        int k = 0;
+        for (int i = 0; i < list2.size(); i++) {
+            if (fName.equals(list2.get(i))) {
+                k++;
+            }
+        }
+        if (k == 0) {
+            System.out.println("NO RESULTS FOUND!");
+        } else {
+            System.out.println(k + "match found!");
+            for (int i = 0; i < list2.size(); i++) {
+                if (fName.equals(list2.get(i))) {
+                    list.print(i + 1);
+                }
+            }
+        }
+        return list;
     }
 }
+
