@@ -125,6 +125,18 @@ public class SinglyLinkedList<E> implements SinglyADT<E> {
         }
     }
 
+    public void print(int index) {
+        Node<E> response = head;
+        System.out.println("-------- * -------- *-------- * --------");
+        for (int i = 0; i < index; i++) {
+            E data = response.getData();
+            response = response.getNext();
+            if (i == index - 1) {
+                System.out.println(data);
+            }
+        }
+    }
+
     private static class Node<E> implements Comparable<E> {
         private E data;
         private Node<E> next;
