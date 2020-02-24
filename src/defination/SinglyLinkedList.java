@@ -93,6 +93,15 @@ public class SinglyLinkedList<E> implements SinglyADT<E> {
 
     @Override
     public void sort() {
+        Node current = head, index = null;
+        E temp;
+        if (head == null) {
+            return;
+        } else {
+            while (current != null) {
+
+            }
+        }
 
     }
 
